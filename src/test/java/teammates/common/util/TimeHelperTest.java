@@ -129,5 +129,19 @@ public class TimeHelperTest extends BaseTestCase {
         actual = TimeHelper.getInstantHoursOffsetFromNow(60).truncatedTo(ChronoUnit.SECONDS);
         assertEquals(expected, actual);
     }
+    
+    @Test
+    public void testAtividade03() {
+        String zoneId = "UTC";
+        Instant instant = LocalDateTime.of(2015, Month.NOVEMBER, 30, 12, 0).atZone(ZoneId.of(zoneId)).toInstant();
+        assertEquals("Mon, 30 Nov 2015, 12:00 NOON UTC", TimeHelper.formatInstant(instant, zoneId, DATETIME_DISPLAY_FORMAT));
+
+        zoneId = "Asia/Singapore";
+        instant = LocalDateTime.of(2015, Month.NOVEMBER, 30, 12, 11).atZone(ZoneId.of(zoneId)).toInstant();
+        assertEquals("Mon, 30 Nov 2015, 04:00 PM SGT", TimeHelper.formatInstant(instant, zoneId, DATETIME_DISPLAY_FORMAT));
+
+        instant = LocalDateTime.of(2015, Month.NOVEMBER, 30, 10, 23).atZone(ZoneId.of(zoneId)).toInstant();
+        assertEquals("Mon, 30 Nov 2015, 04:00 AM SGT", TimeHelper.formatInstant(instant, zoneId, DATETIME_DISPLAY_FORMAT));
+    }
 
 }
