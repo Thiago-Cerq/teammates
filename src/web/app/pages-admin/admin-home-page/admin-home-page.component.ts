@@ -158,6 +158,13 @@ export class AdminHomePageComponent {
     }
   }
 
+  removeAllInstructors(): void {
+    for (let i: number = 0; i < this.instructorsConsolidated.length; i += 1) {
+      this.instructorsConsolidated.splice(i, 1);
+      //this.removeInstructor(i);
+    }
+  }
+
   /**
    * Opens a modal containing more information about a registered instructor.
    */

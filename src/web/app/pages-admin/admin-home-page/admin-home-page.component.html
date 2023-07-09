@@ -81,6 +81,11 @@
         <tm-ajax-loading *ngIf="isAddingInstructors"></tm-ajax-loading>
         Add All Instructors
       </button>
+      <div>       </div>
+      <button class="action-btn btn btn-sm btn-danger" (click)="addAllInstructors()" id="remove-instructor-0" [disabled]="activeRequests > 0 || isAddingInstructors">
+        <tm-ajax-loading *ngIf="isAddingInstructors"></tm-ajax-loading>
+        Remove All Instructors
+      </button>
     </div>
   </div>
 </div>
